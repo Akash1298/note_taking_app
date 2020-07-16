@@ -1,14 +1,13 @@
 
 export const createNote = (date, title, content) => {
-    return { 
-      type: 'CREATE_NOTE',
+    return async dispatch => { 
+      dispatch({ type: 'CREATE_NOTE',
       payload: {
         date: date,
         title: title,
         content: content
         
       }
-    };
+    });
   };
-  
- 
+};

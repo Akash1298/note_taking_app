@@ -7,8 +7,10 @@ class AddNote extends React.Component {
    
     state = {title:'' , content:''}
     
-    onInputChange =(event) => {
-        this.setState({term:event.target.value});
+    onTitleChange =(event) => {
+        this.setState({title:event.target.value});
+    }
+    onContentChange =(event) => {
         this.setState({content:event.target.value});
     }
     onFormSubmit = (event) => {
@@ -26,12 +28,12 @@ class AddNote extends React.Component {
             <div className="field">
                     <label>Title</label>
                     <input  value={this.state.title} 
-                    onChange={this.onInputChange}/>
+                    onChange={this.onTitleChange}/>
                 </div>
                 <div className="field" >
                     <label>Content</label>
                     <textarea value={this.state.content}
-                      onChange={this.onInputChange}
+                      onChange={this.onContentChange}
                     ></textarea>
                 </div>
             </div>
@@ -45,8 +47,8 @@ return <div className='ui container'>
 }}
 
 const mapStateToProps = (state) => {
-    console.log(state.title)
-     return {notes:state.title}
+    console.log(state,"state")
+     return {notes:addNote}
 }
 
     export default connect(mapStateToProps,(createNote))(AddNote);

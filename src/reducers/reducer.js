@@ -1,19 +1,8 @@
-import {combineReducers} from 'redux';
-
-
-
-
-const addNote = (oldListOfNotes =[] , action) => {
+export default function addNote(oldListOfNotes = [], action){
     console.log(action.payload)
-    if(action.type === 'CREATE_NOTE'){
-        return [...oldListOfNotes + action.payload] ;
+    if(action === 'CREATE_NOTE'){
+        return [...oldListOfNotes+action.payload];
     }
-    return oldListOfNotes
-  };
-
-  export default combineReducers({
-    addNote: addNote,
-    
-});
-  
+    return oldListOfNotes;
+};
   
