@@ -15,10 +15,14 @@ class AddNote extends React.Component {
     }
     onFormSubmit = (event) => {
        event.preventDefault()
+       let payload = {date: this.props.date,
+    title: this.state.title,
+content: this.state.content
+}
        this.props.onFormSubmit(this.state.title);
        this.props.onFormSubmit(this.state.content);
       
-       this.props.createNote((this.props.date), (this.state.title), (this.state.content))
+       this.props.createNote(payload)
     }
     renderAddNote() {
         return <div className='ui container'>
@@ -47,8 +51,8 @@ return <div className='ui container'>
 }}
 
 const mapStateToProps = (state) => {
-    console.log(state,"state")
-     return {notes:addNote}
+    //console.log(state,"state")
+     return {notes:state.addNote}
 }
 
     export default connect(mapStateToProps,(createNote))(AddNote);
