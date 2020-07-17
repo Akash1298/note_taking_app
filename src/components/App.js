@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import AddNote from './AddNote'
+import AddNote from './AddNote';
+import NoteList from './NoteList'
+import EditNote from './EditNote';
 
 
 const App = () => {
@@ -11,8 +13,10 @@ const App = () => {
      setDate(date)
  }
 
-    return <div><Calendar onChange={onChange} value={date} />
-    <AddNote date={date} />
+    return <div><Calendar onChange={onChange} value={date} /><br/><br/>
+    <AddNote date={date} /><br/><br/><br/><br/>
+    <NoteList/><br/><br/><br/><br/>
+    <EditNote/>
     </div>
 }
 
