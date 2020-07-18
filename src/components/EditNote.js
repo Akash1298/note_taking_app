@@ -2,8 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 class EditNote extends React.Component {
-    
     state = {title:this.props.selectedNote.title, content:this.props.selectedNote.content}
+    componentDidMount(){
+        this.setState({
+            title : this.props.selectedNote.title //? this.props.selectedNote.title: ""
+        })
+        this.setState({
+            content : this.props.selectedNote.content //? this.props.selectedNote.content: ""
+        })
+    }
     onTitleChange = (event) => {
         this.setState({ title: event.target.value });
     }
@@ -48,10 +55,8 @@ class EditNote extends React.Component {
     }
 
     render(){
-    return (
-        <div>
-            {this.renderEditNote()}
-        </div>);
+        //console.log(this.stat.title)
+        return <div>{this.props.selectedNote.title  ?  this.renderEditNote() : null}</div>
     }
 }
 const mapToStateProps = (state) => {

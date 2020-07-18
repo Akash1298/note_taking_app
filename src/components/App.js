@@ -8,6 +8,7 @@ import EditNote from './EditNote';
 
 const App = () => {
  const[date,setDate] = useState(new Date());
+ 
         
  const onChange = date => {
      setDate(date)

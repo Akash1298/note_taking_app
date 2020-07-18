@@ -38,7 +38,8 @@ class AddNote extends React.Component {
                             onChange={this.onContentChange}
                         ></textarea>
                     </div>
-                    <button onClick={this.onFormSubmit}>
+                    <button className='ui button' 
+                    onClick={this.onFormSubmit}>
                             Add Note
                             </button>
                 </div>
