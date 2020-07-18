@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import AddNote from './AddNote';
-import NoteList from './NoteList'
-import EditNote from './EditNote';
+import NoteForm from './NoteForm';
+import AllNotes from './AllNotes';
 
 
 const App = () => {
@@ -15,10 +14,9 @@ const App = () => {
  }
 
     return <div><Calendar onChange={onChange} value={date} /><br/><br/>
-    <AddNote date={date} /><br/><br/><br/><br/>
-    <NoteList/><br/><br/><br/><br/>
-    <EditNote/>
-    </div>
+    <NoteForm date={date} /><br/><br/><br/><br/>
+    <AllNotes/>
+        </div>
 }
 
 export default  App;    

@@ -1,66 +1,31 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-class EditNote extends React.Component {
-    state = {title:this.props.selectedNote.title, content:this.props.selectedNote.content}
-    componentDidMount(){
-        this.setState({
-            title : this.props.selectedNote.title //? this.props.selectedNote.title: ""
-        })
-        this.setState({
-            content : this.props.selectedNote.content //? this.props.selectedNote.content: ""
-        })
-    }
-    onTitleChange = (event) => {
-        this.setState({ title: event.target.value });
-    }
-    onContentChange = (event) => {
-        this.setState({ content: event.target.value });
-    }
-    onSubmit = (event) => {
-        event.preventDefault()
-        let payload = {
-            title: this.state.title,
-            content:this.state.content,
+class EditNote extends React.Component{
+    submit = (e) => {
+        e.preventDefault();
+        const newTitle = this.getTitle.value;
+        const newcontent = this.getContent.value;
+        const data = {
+            id: this.props.note.id,
+            newTitle,
+            newcontent
         }
-        //console.log(payload)
+        this.props.dispatch({type:'UPDATE', id: this.props.note.id, data})
     }
-       
-    renderEditNote(){
-       
-            return(
-                <div className='ui container divided grid' key={this.state.content}>
-                    <h2 className='ui dividing header'>Edit Note</h2>
-                    
-                    <div className="ui form">
-                    <div className="field">
-                        <label>Title</label>
-                        <input value={this.state.title} 
-                        onChange={this.onTitleChange}
-                        />
-                    </div>
-                    <div className="field" >
-                        <label>Content</label>
-                        <textarea value={this.state.content}
-                        onChange={this.onContentChange}
-                        ></textarea>
-                    </div>
-                    <button className='ui button'
-                        onClick={this.onSubmit}>
-                           Update
-                            </button>
-                </div></div>
-            );
-        
-    }
-
     render(){
-        //console.log(this.stat.title)
-        return <div>{this.props.selectedNote.title  ?  this.renderEditNote() : null}</div>
+        return (
+            <div key={this.props.note.id}>
+                <form onSubmit={this.submit}>
+                    <input required type='text' ref={(input) => this.getTitle =input} 
+                    defaultValue={this.props.note.title} placeholder='NoteTitle'/><br/><br/>
+                    <input required rows='5' cols='28' ref={(input) => this.getContent = input}
+                    placeholder="content" defaultValue={this.props.note.content}  />
+                    <button className='ui button'>Update</button>
+                </form>
+            </div>
+        );
     }
 }
-const mapToStateProps = (state) => {
-    return {selectedNote:state.editNote}
-}
 
-export default connect(mapToStateProps)(EditNote);
+export default connect()(EditNote);
