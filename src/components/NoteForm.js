@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { v1 as uuidv1 } from 'uuid';
 
 class NoteForm extends React.Component{
 
@@ -8,11 +9,13 @@ class NoteForm extends React.Component{
         const title = this.getTitle.value;
         const content = this.getContent.value;
         const data = {
-            id: this.props.date,
+            id: uuidv1(),
+            date: this.props.date,
             title,
             content,
             edit: false
         }
+        
         //console.log(data)
         this.props.dispatch({
             type:'ADD_NOTE', data

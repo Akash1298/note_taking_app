@@ -6,8 +6,8 @@ class Note extends React.Component{
         return (
             <div>
                 <h2>{this.props.note.title}</h2>
-                <p>{this.props.note.id.toLocaleString()}</p>
-                <p>{this.props.note.content}</p>
+                 <p>{this.props.note.content}</p>
+                <p>{this.props.note.date.toLocaleString()}</p>
                 <button className='ui button'
                 onClick={() => this.props.dispatch({type:'EDIT_NOTE', id:this.props.note.id})} >
                 EDIT</button>

@@ -8,6 +8,7 @@ class EditNote extends React.Component{
         const newcontent = this.getContent.value;
         const data = {
             id: this.props.note.id,
+            date:this.props.note.date,
             newTitle,
             newcontent
         }
