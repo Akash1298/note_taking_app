@@ -17,12 +17,13 @@ class EditNote extends React.Component{
     render(){
         return (
             <div key={this.props.note.id}>
-                <form onSubmit={this.submit}>
+                <form onSubmit={this.submit} className='ui form'>
                     <input required type='text' ref={(input) => this.getTitle =input} 
                     defaultValue={this.props.note.title} placeholder='NoteTitle'/><br/><br/>
                     <input required rows='5' cols='28' ref={(input) => this.getContent = input}
                     placeholder="content" defaultValue={this.props.note.content}  />
-                    <button className='ui button'>Update</button>
+                    <button className='ui button' 
+                    style={{backgroundColor: "red", color: 'white'}}>Update</button>
                 </form>
             </div>
         );

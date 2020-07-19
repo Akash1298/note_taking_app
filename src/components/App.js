@@ -18,7 +18,7 @@ const App = () => {
             <Calendar onChange={onChange} value={date} /><br/><br/>
         </div>
         <div>
-            <NoteForm date={date} /><br/><br/><br/><br/>
+            <NoteForm date={date.toLocaleDateString()} /><br/><br/><br/><br/>
         </div>
         <div className='column eight wide'>
             <AllNotes/>

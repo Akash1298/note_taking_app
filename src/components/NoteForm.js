@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 import { v1 as uuidv1 } from 'uuid';
 
 class NoteForm extends React.Component{
-
+  
     onSubmission = (e) => {
         e.preventDefault();
         const title = this.getTitle.value;
         const content = this.getContent.value;
-        localStorage.setItem('date', this.props.date);
-        localStorage.setItem('title', title);
-        localStorage.setItem('content', content);
+       // localStorage.setItem('title', this.getTitle.value);
+       // localStorage.setItem('content', this.getContent.value);
+       // localStorage.setItem('date', this.props.date);
         const data = {
             id: uuidv1(),
             date: this.props.date,
@@ -19,8 +19,6 @@ class NoteForm extends React.Component{
             edit: false
         }
         
-        
-        //console.log(data)
         this.props.dispatch({
             type:'ADD_NOTE', data
         });
