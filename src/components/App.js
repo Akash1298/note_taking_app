@@ -13,9 +13,16 @@ const App = () => {
      setDate(date)
  }
 
-    return <div><Calendar onChange={onChange} value={date} /><br/><br/>
-    <NoteForm date={date} /><br/><br/><br/><br/>
-    <AllNotes/>
+    return <div className='ui container grid' >
+        <div className='column ten wide' ><br/>
+            <Calendar onChange={onChange} value={date} /><br/><br/>
+        </div>
+        <div>
+            <NoteForm date={date} /><br/><br/><br/><br/>
+        </div>
+        <div className='column eight wide'>
+            <AllNotes/>
+        </div>
         </div>
 }
 

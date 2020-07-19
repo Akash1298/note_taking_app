@@ -7,7 +7,7 @@ class AllNotes extends Component {
   render() {
     return (
     <div>
-      <h1>All Notes</h1>
+      <h1 className='ui dividing header'>All Notes</h1>
         {this.props.notes.map((note) => (
             <div key={note.id}>
                 {note.edit ? <EditNote note={note} key={note.id}/> :
