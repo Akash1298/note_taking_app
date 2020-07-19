@@ -1,26 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+var ls = require('local-storage');
 class Note extends React.Component{
     render(){
-       localStorage.setItem('title',this.props.note.title)
-       localStorage.setItem('content', this.props.note.content)
-       localStorage.setItem('date', this.props.note.date.toLocaleString())
-       localStorage.setItem('id',this.props.note.id)
-        //console.log(localStorage.getItem('title'))
+       ls.set('title',this.props.note.title);
+       ls.set('content', this.props.note.content);
+       ls.set('date', this.props.note.date.toLocaleString());
+       ls.set('id',this.props.note.id);
+        console.log(ls.get('title'));
+        console.log(ls.get('content'));
+        console.log(ls.get('date'));
+        console.log(ls.get('id'));
         return (
             
             <div >
                
-                <h4>{localStorage.getItem('title')}</h4>
-                <p>{localStorage.getItem('content')}</p>
-                <p>{localStorage.getItem('date')}</p>
+                <h4>{ls.get('title')}</h4>
+                <p>{ls.get('content')}</p>
+                <p>{ls.get('date')}</p>
                 <button className='ui button'
-                onClick={() => this.props.dispatch({type:'EDIT_NOTE', id:localStorage.getItem('id')})} 
+                onClick={() => this.props.dispatch({type:'EDIT_NOTE', id:ls.get('id')})} 
                 style={{backgroundColor: "green", color: 'white'}} >
                 EDIT</button>
                 <button 
-                onClick={()=>this.props.dispatch({type:'DELETE_NOTE',id:localStorage.getItem('id')})}
+                onClick={()=>this.props.dispatch({type:'DELETE_NOTE',id:ls.get('id')})}
                 className='ui button'
                 style={{backgroundColor: "red", color: 'white'}}
                 >DELETE</button>
