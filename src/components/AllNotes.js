@@ -4,7 +4,6 @@ import Note from './Note';
 import EditNote from './EditNote';
 
 class AllNotes extends Component {
-  
   render() {
     return (
     <div>

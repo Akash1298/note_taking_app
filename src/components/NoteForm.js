@@ -8,9 +8,6 @@ class NoteForm extends React.Component{
         e.preventDefault();
         const title = this.getTitle.value;
         const content = this.getContent.value;
-       // localStorage.setItem('title', this.getTitle.value);
-       // localStorage.setItem('content', this.getContent.value);
-       // localStorage.setItem('date', this.props.date);
         const data = {
             id: uuidv1(),
             date: this.props.date,
